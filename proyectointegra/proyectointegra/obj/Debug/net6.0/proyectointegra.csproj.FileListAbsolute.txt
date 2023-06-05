@@ -1,0 +1,15 @@
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\proyectointegra.csproj.AssemblyReference.cache
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\proyectointegra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\proyectointegra.AssemblyInfoInputs.cache
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\proyectointegra.AssemblyInfo.cs
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\proyectointegra.csproj.CoreCompileInputs.cache
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\bin\Debug\net6.0\proyectointegra.exe
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\bin\Debug\net6.0\proyectointegra.deps.json
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\bin\Debug\net6.0\proyectointegra.runtimeconfig.json
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\bin\Debug\net6.0\proyectointegra.dll
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\bin\Debug\net6.0\proyectointegra.pdb
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\proyectointegra.dll
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\refint\proyectointegra.dll
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\proyectointegra.pdb
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\proyectointegra.genruntimeconfig.cache
+C:\Users\marco\source\repos\proyectointegra\proyectointegra\obj\Debug\net6.0\ref\proyectointegra.dll
