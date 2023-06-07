@@ -51,10 +51,11 @@ namespace proyectointegra
             get { return FechaTentativa;}
         }
 
-        //public DateTime FechaMax(DateTime date)
-        //{
-            //return FechaAutorizacion.Add(date.Now); preguntar
-        //}
+        public DateTime FechaMax()
+        {
+            DateTime fechaMax = FechaAutorizacion.AddDays(FechaTentativa.Day);
+            return fechaMax;
+        }
 
         public decimal MontoMax(int ValorMaximo)
         {
