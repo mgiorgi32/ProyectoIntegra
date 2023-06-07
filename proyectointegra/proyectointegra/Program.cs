@@ -67,7 +67,7 @@ namespace BancoSA{
             Console.ReadLine();
             Console.WriteLine("La fecha tentativa de ingreso seria: " + prestamo.FechaTentativa.ToString("dd/MM/yyyy") + " ");
             Console.ReadLine();
-            //Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString("dd/MM/yyyy") + " ");
+            Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString("dd/MM/yyyy") + " ");
             prestamo.MontoMax(250000);
             Console.WriteLine("Lo maximo que puedes pedir es: " + prestamo.MontoMax(3000 - (int)prestamo.ValorPrestamo) + " ");
             Console.ReadLine();
