@@ -22,6 +22,8 @@ namespace BancoSA{
             Console.ReadLine();
             Console.WriteLine(persona.TelefonoCasa);
             Console.ReadLine();
+            Console.WriteLine("Bienvenido denuevo {0}.", persona.Nombre);
+            Console.ReadLine();
             Console.WriteLine("Muchas gracias, sigamos con el proceso");
             Console.ReadLine();
             Console.Clear();
