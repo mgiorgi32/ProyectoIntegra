@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace proyectointegra
 {
-    internal class persona
+    internal class Persona
     {
         public int Dni { get; set; }
         public string Nombre { get; set; }
@@ -14,7 +14,7 @@ namespace proyectointegra
         public int TelefonoMovil { get; set; }
         public int TelefonoCasa { get; set; }
 
-        public  persona(int dni, string nombre, string apellido, int telefonoMovil, int telefonoCasa)
+        public  Persona(int dni, string nombre, string apellido, int telefonoMovil, int telefonoCasa)
         {
             Dni = dni;
             Nombre = nombre;
