@@ -27,16 +27,26 @@ namespace BancoSA{
                     new Persona(76543210,"Taylor", "Swift", 1199999999,0237999999, 1000000),
                     new Persona(65432198, "Kick", "Butowski", 1100000000, 0237000000, 5000),
                 };
-            Persona persona = personas.Where(x => x.Dni == 12345678).First();            
-            Console.WriteLine (persona.Dni);
-            Console.WriteLine(persona.Nombre);
-            Console.WriteLine(persona.Apellido);
-            Console.WriteLine(persona.TelefonoMovil);
-            Console.WriteLine(persona.TelefonoCasa);
-            Console.WriteLine("Bienvenido denuevo {0}.", persona.Nombre);
-            Console.WriteLine("Muchas gracias, sigamos con el proceso");
-            Console.ReadLine();
-            Console.Clear();
+           Console.WriteLine("Ingrese su DNI:");
+                int dni = int.Parse(Console.ReadLine());
+                Persona persona = personas.Where(x => x.Dni == dni).First();
+                if (persona != null)
+                {
+                    Console.WriteLine(persona.Dni);
+                    Console.WriteLine(persona.Nombre);
+                    Console.WriteLine(persona.Apellido);
+                    Console.WriteLine(persona.TelefonoMovil);
+                    Console.WriteLine(persona.TelefonoCasa);
+                    Console.WriteLine("Bienvenido denuevo {0}.", persona.Nombre);
+                    Console.WriteLine("Muchas gracias, sigamos con el proceso");
+                }
+                else
+                {
+                    Console.WriteLine("Este usuario no esta registrado en el sistema, intentelo mas tarde");
+                    otro = false;
+                }
+                Console.ReadLine();
+                Console.Clear();
 
             Prestamo prestamo = new Prestamo { numeroPrestamo = 1, FechaAutorizacion = DateTime.Now };
                 Console.WriteLine("Lo maximo que puedes pedir es: " + persona.MontoMaximo + " ");
