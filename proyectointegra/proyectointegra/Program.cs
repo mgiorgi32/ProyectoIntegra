@@ -33,7 +33,7 @@ namespace BancoSA{
             Console.ReadLine();
             prestamo.ValorPrestamo.ToString(Console.ReadLine()); //preguntar 
             Console.WriteLine(prestamo.ValorPrestamo);
-            Console.WriteLine("Este prestamo puede ser pagado en 3, 6, 12 0 18 cuotas, el plan de 12 y 18 cuotas tiene un interes, en cuantas cuotas quiere sacar este prestamo: " );
+            Console.WriteLine("Este prestamo puede ser pagado en 3, 6, 12 0 18 cuotas, el plan de 12 y 18 cuotas tiene un interes y tambien puede ser pagado en un pago aunque no es recomendable, en cuantas cuotas quiere sacar este prestamo: " );
             int cuota = Convert.ToInt32(Console.ReadLine());
             if(cuota==3)
             {
@@ -59,6 +59,11 @@ namespace BancoSA{
                 Console.WriteLine($"Las cuotas serian 18 de: {valor}");
                 prestamo.FechaPagos = new List<DateTime> { prestamo.FechaTentativa.AddMonths(1), prestamo.FechaTentativa.AddMonths(2), prestamo.FechaTentativa.AddMonths(3), prestamo.FechaTentativa.AddMonths(4), prestamo.FechaTentativa.AddMonths(5), prestamo.FechaTentativa.AddMonths(6), prestamo.FechaTentativa.AddMonths(7), prestamo.FechaTentativa.AddMonths(8), prestamo.FechaTentativa.AddMonths(9), prestamo.FechaTentativa.AddMonths(10), prestamo.FechaTentativa.AddMonths(11), prestamo.FechaTentativa.AddMonths(12), prestamo.FechaTentativa.AddMonths(13), prestamo.FechaTentativa.AddMonths(14), prestamo.FechaTentativa.AddMonths(15), prestamo.FechaTentativa.AddMonths(16), prestamo.FechaTentativa.AddMonths(17), prestamo.FechaTentativa.AddMonths(18) };
                 Console.WriteLine("Sus fechas de pago serian: " + prestamo.FechaPagos.Count);
+            }else if(cuota == 1)
+            {
+                int valor = (int)(prestamo.ValorPrestamo);
+                Console.WriteLine($"El pago se haria en 1 pago de: {valor}");
+                Console.WriteLine("La fecha de pago seria el dia: {0}", prestamo.FechaTentativa.AddMonths(1));
             }
             else
             {
