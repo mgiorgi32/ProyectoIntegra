@@ -54,7 +54,7 @@ namespace BancoSA{
                 prestamo.ValorPrestamo = v;
                 Console.WriteLine(prestamo.ValorPrestamo);
                 Console.WriteLine("Ahora gracias al prestamo tu patrimonio seria de: " + (persona.PatrimonioActual + prestamo.ValorPrestamo) + " ");
-                Console.WriteLine("Este prestamo puede ser pagado en 3, 6, 12 0 18 cuotas, el plan de 12 y 18 cuotas tiene un interes y tambien puede ser pagado en un pago aunque no es recomendable,  en cuantas cuotas quiere sacar este prestamo: " );
+                Console.WriteLine("Este prestamo puede ser pagado en 3, 6, 12 0 18 cuotas, en cuantas cuotas quiere sacar este prestamo: " );
                 int cuota = Convert.ToInt32(Console.ReadLine());
                     var cuotaMaxima = 18;
 
