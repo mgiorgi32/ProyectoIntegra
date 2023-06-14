@@ -61,6 +61,7 @@ namespace BancoSA{
                     if (cuota % 3 != 0 || cuota > cuotaMaxima || cuota < 3)
                     {
                     Console.WriteLine("Estas cuotas no estan disponibles intentelo denuevo mas tarde.");
+                        otro=false;
                     }
                     else
                     {
