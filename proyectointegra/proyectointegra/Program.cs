@@ -16,16 +16,16 @@ namespace BancoSA{
             Console.ReadLine();
                 var personas = new List<Persona>()
                 {
-                    new Persona(12345678, "Fernando", "Alonso", 1122222222, 023766666),
-                    new Persona(87654321, "Lance", "Stroll", 1111111111, 0237111111),
-                    new Persona(21436587, "Clint", "Barton", 1133333333, 0237222222),
-                    new Persona(13245768, "Tony", "Stark", 1144444444, 0237333333),
-                    new Persona(86754231, "Luke", "Skywalker", 1155555555, 0237444444),
-                    new Persona(18273645, "El pollo", "Vignolo", 1166666666, 0237555555),
-                    new Persona(54637281, "Lionel", "Messi", 1177777777, 0237777777),
-                    new Persona(45362718, "Seth", "Rollins", 1188888888, 0237888888),
-                    new Persona(76543210,"Taylor", "Swift", 1199999999,0237999999),
-                    new Persona(65432198, "Kick", "Butowski", 1100000000, 0237000000),
+                     new Persona(12345678, "Fernando", "Alonso", 1122222222, 023766666, 100000),
+                    new Persona(87654321, "Lance", "Stroll", 1111111111, 0237111111, 45000),
+                    new Persona(21436587, "Clint", "Barton", 1133333333, 0237222222, 100000),
+                    new Persona(13245768, "Tony", "Stark", 1144444444, 0237333333,10000),
+                    new Persona(86754231, "Luke", "Skywalker", 1155555555, 0237444444, 200000),
+                    new Persona(18273645, "El pollo", "Vignolo", 1166666666, 0237555555, 500000),
+                    new Persona(54637281, "Lionel", "Messi", 1177777777, 0237777777, 1000000),
+                    new Persona(45362718, "Seth", "Rollins", 1188888888, 0237888888, 15000),
+                    new Persona(76543210,"Taylor", "Swift", 1199999999,0237999999, 1000000),
+                    new Persona(65432198, "Kick", "Butowski", 1100000000, 0237000000, 5000),
                 };
             Persona persona = personas.Where(x => x.Dni == 12345678).First();            
             Console.WriteLine (persona.Dni);
@@ -39,7 +39,7 @@ namespace BancoSA{
             Console.Clear();
 
             Prestamo prestamo = new Prestamo { numeroPrestamo = 1, FechaAutorizacion = DateTime.Now };
-                Console.WriteLine("Lo maximo que puedes pedir es: " + 250000 + " ");
+                Console.WriteLine("Lo maximo que puedes pedir es: " + persona.MontoMaximo + " ");
             Console.WriteLine("¿De cuanto seria su prestamo?" );
             Console.ReadLine();
                 prestamo.ValorPrestamo = decimal.Parse(Console.ReadLine());
