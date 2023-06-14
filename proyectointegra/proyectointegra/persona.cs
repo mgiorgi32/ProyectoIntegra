@@ -13,6 +13,7 @@ namespace proyectointegra
         public string Apellido { get; set; }
         public int TelefonoMovil { get; set; }
         public int TelefonoCasa { get; set; }
+        public int MontoMaximo { get; set; }
 
         public  Persona(int dni, string nombre, string apellido, int telefonoMovil, int telefonoCasa)
         {
@@ -21,6 +22,7 @@ namespace proyectointegra
             Apellido = apellido;
             TelefonoMovil = telefonoMovil;
             TelefonoCasa = telefonoCasa;
+            MontoMaximo = montoMaximo;
         }
 
     }
