@@ -52,7 +52,7 @@ namespace BancoSA{
                 Console.WriteLine("¿De cuanto seria su prestamo?" );
                 decimal v = decimal.Parse(Console.ReadLine());
                 prestamo.ValorPrestamo = v;
-                Console.WriteLine(prestamo.ValorPrestamo);
+                Console.WriteLine("Tu prestamo seria de: " + prestamo.ValorPrestamo + " ");
                 Console.WriteLine("Ahora gracias al prestamo tu patrimonio seria de: " + (persona.PatrimonioActual + prestamo.ValorPrestamo) + " ");
                 Console.WriteLine("Este prestamo puede ser pagado en 3, 6, 12 0 18 cuotas, en cuantas cuotas quiere sacar este prestamo: " );
                 int cuota = Convert.ToInt32(Console.ReadLine());
