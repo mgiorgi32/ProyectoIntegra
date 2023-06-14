@@ -13,10 +13,10 @@ namespace proyectointegra
         public string Apellido { get; set; }
         public int TelefonoMovil { get; set; }
         public int TelefonoCasa { get; set; }
-        public int MontoMaximo { get; set; }
-        public int PatrimonioActual { get; set; }
+        public decimal MontoMaximo { get; set; }
+        public decimal PatrimonioActual { get; set; }
 
-        public  Persona(int dni, string nombre, string apellido, int telefonoMovil, int telefonoCasa, int montoMaximo, int patrimonioActual))
+        public  Persona(int dni, string nombre, string apellido, int telefonoMovil, int telefonoCasa, decimal montoMaximo, decimal patrimonioActual))
         {
             Dni = dni;
             Nombre = nombre;
