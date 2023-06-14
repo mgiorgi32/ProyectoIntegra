@@ -1,11 +1,13 @@
 using proyectointegra;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.Design;
 
-namespace BancoSA{
-    class program
+namespace BancoSA
+{
+    class Program
     {
-        
+
         public static void Main()
         {
             bool otro = true;
@@ -27,7 +29,7 @@ namespace BancoSA{
                 };
                 Console.WriteLine("Ingrese su DNI:");
                 int dni = int.Parse(Console.ReadLine());
-                Persona persona = personas.Where(x => x.Dni == dni).First();
+                Persona persona = personas.FirstOrDefault(x => x.Dni == dni);
                 if (persona != null)
                 {
                     Console.WriteLine(persona.Dni);
@@ -37,6 +39,7 @@ namespace BancoSA{
                     Console.WriteLine(persona.TelefonoCasa);
                     Console.WriteLine("Bienvenido denuevo {0}.", persona.Nombre);
                     Console.WriteLine("Muchas gracias, sigamos con el proceso");
+
                 }
                 else
                 {
@@ -45,60 +48,74 @@ namespace BancoSA{
                 }
                 Console.ReadLine();
                 Console.Clear();
-                
+
                 Prestamo prestamo = new Prestamo { numeroPrestamo = 1, FechaAutorizacion = DateTime.Now };
                 Console.WriteLine("Tu patrimonio actual es de: " + persona.PatrimonioActual + " ");
                 Console.WriteLine("Tu limite de prestamo es de: " + persona.MontoMaximo + " ");
-                Console.WriteLine("¿De cuanto seria su prestamo?" );
+                Console.WriteLine("¿De cuanto seria su prestamo?");
                 decimal v = decimal.Parse(Console.ReadLine());
-                prestamo.ValorPrestamo = v;
-                Console.WriteLine("Tu prestamo seria de: " + prestamo.ValorPrestamo + " ");
-                Console.WriteLine("Ahora gracias al prestamo tu patrimonio seria de: " + (persona.PatrimonioActual + prestamo.ValorPrestamo) + " ");
-                Console.WriteLine("Este prestamo puede ser pagado en 3, 6, 12 0 18 cuotas, en cuantas cuotas quiere sacar este prestamo: " );
-                int cuota = Convert.ToInt32(Console.ReadLine());
+                if (v > 0)
+                {
+                    prestamo.ValorPrestamo = v;
+                    Console.WriteLine("Tu prestamo seria de: " + prestamo.ValorPrestamo + " ");
+                    Console.WriteLine("Ahora gracias al prestamo tu patrimonio seria de: " + (persona.PatrimonioActual + prestamo.ValorPrestamo) + " ");
+                    Console.WriteLine("Este prestamo puede ser pagado en 3, 6, 12 0 18 cuotas, en cuantas cuotas quiere sacar este prestamo: ");
+                    int cuota = Convert.ToInt32(Console.ReadLine());
                     var cuotaMaxima = 18;
 
                     if (cuota % 3 != 0 || cuota > cuotaMaxima || cuota < 3)
                     {
-                    Console.WriteLine("Estas cuotas no estan disponibles intentelo denuevo mas tarde.");
-                        otro=false;
+                        Console.WriteLine("Estas cuotas no estan disponibles intentelo denuevo mas tarde.");
+                        Console.ReadLine();
                     }
                     else
                     {
                         int valor = (int)(prestamo.ValorPrestamo /= cuota);
                         Console.WriteLine($"las cuotas serian {cuota} con un valor cada una de {valor}");
                         prestamo.FechaPagos = new List<DateTime>();
-                        for( var i = 1; i<= cuota; i++ )
+                        for (var i = 1; i <= cuota; i++)
                         {
-                            prestamo.FechaPagos.Add( prestamo.FechaTentativa.AddMonths(i) );
+                            prestamo.FechaPagos.Add(prestamo.FechaTentativa.AddMonths(i));
                         }
                         var mensajeFechas = "sus fechas de pago son: ";
                         var separador = " ";
-                        for (var i=0; i<prestamo.FechaPagos.Count; i++ )
+                        for (var i = 0; i < prestamo.FechaPagos.Count; i++)
                         {
-                           mensajeFechas += $"{separador}{prestamo.FechaPagos[i]}\n";
-                           separador = ",";
+                            mensajeFechas += $"{separador}{prestamo.FechaPagos[i]}\n";
+                            separador = ",";
                         }
                         Console.WriteLine(mensajeFechas);
                         Console.WriteLine("La fecha de autorizacion de uso seria: " + prestamo.FechaAutorizacion.ToString("dd/MM/yyyy") + " ");
                         Console.WriteLine("La fecha tentativa de ingreso seria: " + prestamo.FechaTentativa.ToString("dd/MM/yyyy") + " ");
-                    Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString("dd/MM/yyyy") + " ");
+                        Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString("dd/MM/yyyy") + " ");
                         Console.ReadLine();
                     }
+                }
+                else
+                {
+                    Console.WriteLine("La cifra del prestamo debe ser un numero mayor a 0, vuelva a intentarlo mas tarde");
+                    Console.ReadLine();
+                }                
                     Console.WriteLine("¿Desea pedir otro prestamo?");
                     string RTA = Console.ReadLine();
-                    if( RTA == "si")
+                    if (RTA == "si")
                     {
                         Console.Clear();
                         continue;
-                    }else if ( RTA == "no")
+                    }
+                    else if (RTA == "no")
                     {
                         otro = false;
                     }
+                    else
+                    {
+                        Console.WriteLine("Como no te entendimos tomaremos tu respuesta como negativa");
+                        Console.ReadLine();
+                        otro = false;
+                    }
             }
-            
-            
         }
     }
 }
-//Preguntar fechas de pago y fechas tentativas (modificar) y que no se repita algo cuando lo pones
+
+//Preguntar fechas de pago y fechas tentativas (modificar) y que no se repita algo cuando lo pones y como tirar el deseas pedir otro prestamo directamente luego de que no este el user
