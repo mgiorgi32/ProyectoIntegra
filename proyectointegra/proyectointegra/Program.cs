@@ -14,16 +14,16 @@ namespace BancoSA{
                 Console.WriteLine("Bienvenido a la pagina de prestamos, vamos a precisar unos datos para avanzar: ");
                 var personas = new List<Persona>()
                 {
-                    new Persona(12345678, "Fernando", "Alonso", 1122222222, 023766666, 100000),
-                    new Persona(87654321, "Lance", "Stroll", 1111111111, 0237111111, 45000),
-                    new Persona(21436587, "Clint", "Barton", 1133333333, 0237222222, 100000),
-                    new Persona(13245768, "Tony", "Stark", 1144444444, 0237333333,10000),
-                    new Persona(86754231, "Luke", "Skywalker", 1155555555, 0237444444, 200000),
-                    new Persona(18273645, "El pollo", "Vignolo", 1166666666, 0237555555, 500000),
-                    new Persona(54637281, "Lionel", "Messi", 1177777777, 0237777777, 1000000),
-                    new Persona(45362718, "Seth", "Rollins", 1188888888, 0237888888, 15000),
-                    new Persona(76543210,"Taylor", "Swift", 1199999999,0237999999, 1000000),
-                    new Persona(65432198, "Kick", "Butowski", 1100000000, 0237000000, 5000),
+                    new Persona(12345678, "Fernando", "Alonso", 1122222222, 023766666, 100000, 545000),
+                    new Persona(87654321, "Lance", "Stroll", 1111111111, 0237111111, 45000, 350000),
+                    new Persona(21436587, "Clint", "Barton", 1133333333, 0237222222, 100000, 34500),
+                    new Persona(13245768, "Tony", "Stark", 1144444444, 0237333333,10000, 1000000),
+                    new Persona(86754231, "Luke", "Skywalker", 1155555555, 0237444444, 200000, 150000),
+                    new Persona(18273645, "El pollo", "Vignolo", 1166666666, 0237555555, 500000, 120000),
+                    new Persona(54637281, "Lionel", "Messi", 1177777777, 0237777777, 1000000, 2000000),
+                    new Persona(45362718, "Seth", "Rollins", 1188888888, 0237888888, 15000, 75000),
+                    new Persona(76543210,"Taylor", "Swift", 1199999999,0237999999, 1000000, 3500000),
+                    new Persona(65432198, "Kick", "Butowski", 1100000000, 0237000000, 50000, 15000),
                 };
                 Console.WriteLine("Ingrese su DNI:");
                 int dni = int.Parse(Console.ReadLine());
@@ -47,11 +47,13 @@ namespace BancoSA{
                 Console.Clear();
                 
                 Prestamo prestamo = new Prestamo { numeroPrestamo = 1, FechaAutorizacion = DateTime.Now };
-                Console.WriteLine("Lo maximo que puedes pedir es: " + persona.MontoMaximo + " ");
+                Console.WriteLine("Tu patrimonio actual es de: " + persona.PatrimonioActual + " ");
+                Console.WriteLine("Tu limite de prestamo es de: " + persona.MontoMaximo + " ");
                 Console.WriteLine("¿De cuanto seria su prestamo?" );
                 decimal v = decimal.Parse(Console.ReadLine());
                 prestamo.ValorPrestamo = v;
                 Console.WriteLine(prestamo.ValorPrestamo);
+                Console.WriteLine("Ahora gracias al prestamo tu patrimonio seria de: " + (persona.PatrimonioActual + prestamo.ValorPrestamo) + " ");
                 Console.WriteLine("Este prestamo puede ser pagado en 3, 6, 12 0 18 cuotas, el plan de 12 y 18 cuotas tiene un interes y tambien puede ser pagado en un pago aunque no es recomendable,  en cuantas cuotas quiere sacar este prestamo: " );
                 int cuota = Convert.ToInt32(Console.ReadLine());
                     var cuotaMaxima = 18;
@@ -79,7 +81,7 @@ namespace BancoSA{
                         Console.WriteLine(mensajeFechas);
                         Console.WriteLine("La fecha de autorizacion de uso seria: " + prestamo.FechaAutorizacion.ToString("dd/MM/yyyy") + " ");
                         Console.WriteLine("La fecha tentativa de ingreso seria: " + prestamo.FechaTentativa.ToString("dd/MM/yyyy") + " ");
-                        Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString("dd/MM/yyyy") + " ");
+                    Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString("dd/MM/yyyy") + " ");
                         Console.ReadLine();
                     }
                     Console.WriteLine("¿Desea pedir otro prestamo?");
