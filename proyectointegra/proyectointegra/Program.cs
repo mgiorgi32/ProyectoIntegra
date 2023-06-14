@@ -118,4 +118,4 @@ namespace BancoSA
     }
 }
 
-//Preguntar fechas de pago y fechas tentativas (modificar) y que no se repita algo cuando lo pones y como tirar el deseas pedir otro prestamo directamente luego de que no este el user
+//Preguntar fechas de pago y fechas tentativas (modificar) y que no se repita algo cuando lo pones y como tirar el deseas pedir otro prestamo directamente luego de que no este el user, como poner 1.000 enves de 1000
