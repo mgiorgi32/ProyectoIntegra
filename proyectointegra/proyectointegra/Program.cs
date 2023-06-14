@@ -101,3 +101,4 @@ namespace BancoSA{
         }
     }
 }
+//Preguntar fechas de pago y fechas tentativas (modificar) y que no se repita algo cuando lo pones
