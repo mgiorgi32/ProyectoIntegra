@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace proyectointegra
 {
-    internal class prestamo
+    internal class Prestamo
     {
         public int NumeroPrestamo { get; set; }
         public decimal ValorPrestamo { get; set; }
