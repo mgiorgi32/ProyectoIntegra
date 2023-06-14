@@ -16,7 +16,7 @@ namespace proyectointegra
         public int MontoMaximo { get; set; }
         public int PatrimonioActual { get; set; }
 
-        public  Persona(int dni, string nombre, string apellido, int telefonoMovil, int telefonoCasa)
+        public  Persona(int dni, string nombre, string apellido, int telefonoMovil, int telefonoCasa, int montoMaximo, int patrimonioActual))
         {
             Dni = dni;
             Nombre = nombre;
