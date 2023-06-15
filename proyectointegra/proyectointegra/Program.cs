@@ -8,6 +8,7 @@ namespace BancoSA
     class Program
     {
 
+        private const string Format = "dd/MM/yyyy";
         public static void Main()
         {
             bool otro = true;
@@ -70,24 +71,36 @@ namespace BancoSA
                     }
                     else
                     {
-                        int valor = (int)(prestamo.ValorPrestamo /= cuota);
+                        int valor = (int)(prestamo.ValorPrestamo/=cuota);
                         Console.WriteLine($"las cuotas serian {cuota} con un valor cada una de {valor}");
+                        if(cuota == 12 || cuota == 18)
+                        {
+                            prestamo.ValorPrestamo = intereses(prestamo.ValorPrestamo);
+                            valor = (int)(prestamo.ValorPrestamo);
+                            Console.WriteLine("Sus cuotas tendran un interes del 5%");
+                            Console.ReadLine() ;
+                        }else if (cuota == 3 || cuota == 6)
+                        {
+                            continue;
+                        }
                         prestamo.FechaPagos = new List<DateTime>();
+                        DateTime fechaHoy = DateTime.Now;
                         for (var i = 1; i <= cuota; i++)
                         {
-                            prestamo.FechaPagos.Add(prestamo.FechaTentativa.AddMonths(i));
+                            prestamo.FechaPagos.Add(fechaHoy.AddMonths(i));
                         }
-                        var mensajeFechas = "sus fechas de pago son: ";
+                        var mensajeFechas = "sus fechas de pago son: \n";
                         var separador = " ";
                         for (var i = 0; i < prestamo.FechaPagos.Count; i++)
                         {
                             mensajeFechas += $"{separador}{prestamo.FechaPagos[i]}\n";
                             separador = ",";
                         }
+
                         Console.WriteLine(mensajeFechas);
-                        Console.WriteLine("La fecha de autorizacion de uso seria: " + prestamo.FechaAutorizacion.ToString("dd/MM/yyyy") + " ");
-                        Console.WriteLine("La fecha tentativa de ingreso seria: " + prestamo.FechaTentativa.ToString("dd/MM/yyyy") + " ");
-                        Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString("dd/MM/yyyy") + " ");
+                        Console.WriteLine("La fecha de autorizacion de uso seria: " + prestamo.FechaAutorizacion.ToString(Format) + " ");
+                        Console.WriteLine("La fecha tentativa de ingreso seria: " + fechaHoy.AddDays(4).ToString(Format) + " ");
+                        Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString(Format) + " ");
                         Console.ReadLine();
                     }
                 }
@@ -115,7 +128,14 @@ namespace BancoSA
                     }
             }
         }
+        public static decimal intereses(decimal precioN)
+        {
+            decimal interes = precioN * 0.05m;
+            decimal precioFinal = precioN + interes;
+            return precioFinal;
+        }
     }
 }
 
-//Preguntar fechas de pago y fechas tentativas (modificar) y que no se repita algo cuando lo pones y como tirar el deseas pedir otro prestamo directamente luego de que no este el user, como poner 1.000 enves de 1000
+
+//Preguntar que no se repita algo cuando lo pones y como tirar el deseas pedir otro prestamo directamente luego de que no este el user, como poner 1.000 enves de 1000
