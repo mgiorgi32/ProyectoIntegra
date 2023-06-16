@@ -81,7 +81,8 @@ namespace BancoSA
                             Console.ReadLine() ;
                         }else if (cuota == 3 || cuota == 6)
                         {
-                            continue;
+                            Console.WriteLine("estas cuotas no tienen interes");
+                            Console.ReadLine();
                         }
                         prestamo.FechaPagos = new List<DateTime>();
                         DateTime fechaHoy = DateTime.Now;
