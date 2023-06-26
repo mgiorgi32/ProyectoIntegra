@@ -56,6 +56,7 @@ namespace BancoSA
                 Console.WriteLine("Tu limite de prestamo es de: " + persona.MontoMaximo + " ");
                 Console.WriteLine("¿De cuanto seria su prestamo?");
                 decimal v = decimal.Parse(Console.ReadLine());
+                Console.Clear() ;
                 if (v > 0)
                 {
                     prestamo.ValorPrestamo = v;
