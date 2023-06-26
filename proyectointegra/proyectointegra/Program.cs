@@ -33,12 +33,13 @@ namespace BancoSA
                 Persona persona = personas.FirstOrDefault(x => x.Dni == dni);
                 if (persona != null)
                 {
-                    Console.WriteLine(persona.Dni);
-                    Console.WriteLine(persona.Nombre);
-                    Console.WriteLine(persona.Apellido);
-                    Console.WriteLine(persona.TelefonoMovil);
-                    Console.WriteLine(persona.TelefonoCasa);
-                    Console.WriteLine("Bienvenido denuevo {0}.", persona.Nombre);
+                    Console.Clear();
+                    Console.WriteLine("Bienvenido a Banco S.A., sus datos son:");
+                    Console.WriteLine("Dni: " + persona.Dni);
+                    Console.WriteLine("Nombre: " + persona.Nombre);
+                    Console.WriteLine("Apellido: " + persona.Apellido);
+                    Console.WriteLine("Telefono movil: " + persona.TelefonoMovil);
+                    Console.WriteLine("Telefono fijo: " + persona.TelefonoCasa);
                     Console.WriteLine("Muchas gracias, sigamos con el proceso");
 
                 }
@@ -103,6 +104,7 @@ namespace BancoSA
                         Console.WriteLine("La fecha tentativa de ingreso seria: " + fechaHoy.AddDays(4).ToString(Format) + " ");
                         Console.WriteLine("La fecha maxima de autorización para este prestamo seria: " + prestamo.FechaMax().ToString(Format) + " ");
                         Console.ReadLine();
+                        Console.Clear();
                     }
                 }
                 else
@@ -119,6 +121,8 @@ namespace BancoSA
                     }
                     else if (RTA == "no")
                     {
+                    Console.WriteLine("Muchisimas gracias por confiar en nosotros, hasta luego");
+                    Console.ReadLine();
                         otro = false;
                     }
                     else
@@ -139,4 +143,4 @@ namespace BancoSA
 }
 
 
-//Preguntar que no se repita algo cuando lo pones y como tirar el deseas pedir otro prestamo directamente luego de que no este el user, como poner 1.000 enves de 1000
+//Preguntar como tirar el deseas pedir otro prestamo directamente luego de que no este el user, como poner 1.000 enves de 1000
