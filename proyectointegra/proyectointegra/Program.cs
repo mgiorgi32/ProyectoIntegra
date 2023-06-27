@@ -73,16 +73,20 @@ namespace BancoSA
                     }
                     else
                     {
-                        int valor = (int)(prestamo.ValorPrestamo/=cuota);
-                        Console.WriteLine($"las cuotas serian {cuota} con un valor cada una de {valor}");
+                        Console.WriteLine($"las cuotas serian {cuota}");
                         if(cuota == 12 || cuota == 18)
                         {
-                            prestamo.ValorPrestamo = intereses(prestamo.ValorPrestamo);
-                            valor = (int)(prestamo.ValorPrestamo);
-                            Console.WriteLine("Sus cuotas tendran un interes del 5%");
-                            Console.ReadLine() ;
+                            decimal valorConInteres = intereses(prestamo.ValorPrestamo);
+                            int valor = (int)(valorConInteres);
+                            decimal interes = (valorConInteres - prestamo.ValorPrestamo)/cuota;
+                            Console.WriteLine($"Sus cuotas tendrán un interés del 5%.");
+                            Console.WriteLine($"El interés en cada cuota será de: {interes}");
+                            Console.WriteLine($"El precio final seria de: {valor}");
+                            Console.ReadLine();
                         }else if (cuota == 3 || cuota == 6)
                         {
+                            int valor = (int)(prestamo.ValorPrestamo /= cuota);
+                            Console.WriteLine($"Cada cuota tendra un valor de: {valor}");
                             Console.WriteLine("estas cuotas no tienen interes");
                             Console.ReadLine();
                         }
@@ -144,4 +148,4 @@ namespace BancoSA
 }
 
 
-//Preguntar como tirar el deseas pedir otro prestamo directamente luego de que no este el user, como poner 1.000 enves de 1000
+//Preguntar como tirar un este usuario no esta disponible quieres intentar denuevo luego de que no este el user, como poner 1.000 enves de 1000
