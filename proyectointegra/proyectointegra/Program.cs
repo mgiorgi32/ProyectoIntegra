@@ -12,8 +12,10 @@ namespace BancoSA
         public static void Main()
         {
             bool otro = true;
+            var cantidadPrestamos = 0; 
             while (otro)
             {
+                cantidadPrestamos++;
                 Console.WriteLine("Bienvenido a la pagina de prestamos, vamos a precisar unos datos para avanzar: ");
                 var personas = new List<Persona>()
                 {
@@ -40,18 +42,20 @@ namespace BancoSA
                     Console.WriteLine("Apellido: " + persona.Apellido);
                     Console.WriteLine("Telefono movil: " + persona.TelefonoMovil);
                     Console.WriteLine("Telefono fijo: " + persona.TelefonoCasa);
+                    Console.WriteLine("Usted pidio una cantidad de " + cantidadPrestamos + " prestamos");
                     Console.WriteLine("Muchas gracias, sigamos con el proceso");
 
                 }
                 else
                 {
                     Console.WriteLine("Este usuario no esta registrado en el sistema, intentelo mas tarde");
-                    otro = false;
+                    cantidadPrestamos = 0;
+                    break;
                 }
                 Console.ReadLine();
                 Console.Clear();
 
-                Prestamo prestamo = new Prestamo { numeroPrestamo = 1, FechaAutorizacion = DateTime.Now };
+                Prestamo prestamo = new Prestamo { numeroPrestamo = cantidadPrestamos, FechaAutorizacion = DateTime.Now };
                 Console.WriteLine("Tu patrimonio actual es de: " + persona.PatrimonioActual + " ");
                 Console.WriteLine("Tu limite de prestamo es de: " + persona.MontoMaximo + " ");
                 Console.WriteLine("¿De cuanto seria su prestamo?");
@@ -73,6 +77,7 @@ namespace BancoSA
                     }
                     else
                     {
+                        
                         Console.WriteLine($"las cuotas serian {cuota}");
                         if(cuota == 12 || cuota == 18)
                         {
@@ -83,7 +88,8 @@ namespace BancoSA
                             Console.WriteLine($"El interés en cada cuota será de: {interes}");
                             Console.WriteLine($"El precio final seria de: {valor}");
                             Console.ReadLine();
-                        }else if (cuota == 3 || cuota == 6)
+                        }
+                        else if (cuota == 3 || cuota == 6)
                         {
                             int valor = (int)(prestamo.ValorPrestamo /= cuota);
                             Console.WriteLine($"Cada cuota tendra un valor de: {valor}");
@@ -97,11 +103,11 @@ namespace BancoSA
                             prestamo.FechaPagos.Add(fechaHoy.AddMonths(i));
                         }
                         var mensajeFechas = "sus fechas de pago son: \n";
-                        var separador = " ";
+                        //var separador = " ";
                         for (var i = 0; i < prestamo.FechaPagos.Count; i++)
                         {
-                            mensajeFechas += $"{separador}{prestamo.FechaPagos[i]}\n";
-                            separador = ",";
+                            mensajeFechas += $"{prestamo.FechaPagos[i].ToString(Format)}\n";
+                            //separador = ",";
                         }
 
                         Console.WriteLine(mensajeFechas);
@@ -147,5 +153,3 @@ namespace BancoSA
     }
 }
 
-
-//Preguntar como tirar un este usuario no esta disponible quieres intentar denuevo luego de que no este el user, como poner 1.000 enves de 1000
